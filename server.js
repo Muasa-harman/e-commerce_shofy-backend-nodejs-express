@@ -20,6 +20,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.get("/health", async(req,res)=>{
+  res.send({message: "health OK!"});
+})
+
 app.use("/api/user", authRouter);
 app.use("/api/blog", blogRouter);
 app.use("/api/product", productRouter);
